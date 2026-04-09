@@ -1,0 +1,1171 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="36.00" TargetName="MainProgram" TargetType="Program" ContainsContext="true" ExportDate="Thu Apr 09 14:12:59 2026" ExportOptions="References NoRawData L5KData DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
+<Controller Use="Context" Name="PID_TempLoop_AutoTune_ManualOverride">
+<DataTypes Use="Context">
+</DataTypes>
+<Programs Use="Context">
+<Program Use="Target" Name="MainProgram" TestEdits="false" MainRoutineName="MainRoutine" Disabled="false" UseAsFolder="false">
+<Tags>
+<Tag Name="CALC_OvershootPct" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[overshoot percentage]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0.00000000e+000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</Data>
+</Tag>
+<Tag Name="CALC_PV_Error" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[SP-PV]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0.00000000e+000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</Data>
+</Tag>
+<Tag Name="CALC_PV_Max" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[peak PV during test]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0.00000000e+000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</Data>
+</Tag>
+<Tag Name="CALC_PV_Min" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[minimum PV during test]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0.00000000e+000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</Data>
+</Tag>
+<Tag Name="CALC_RiseTimeSec" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[time to first reach target band]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0.00000000e+000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</Data>
+</Tag>
+<Tag Name="CALC_SettlingTimeSec" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[time to settle near SP]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0.00000000e+000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</Data>
+</Tag>
+<Tag Name="CALC_SP_AbsDelta" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[absolute difference used for comparison logic]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0.00000000e+000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</Data>
+</Tag>
+<Tag Name="CALC_SP_Delta" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Target - Ramped]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0.00000000e+000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</Data>
+</Tag>
+<Tag Name="CALC_SP_RampRatePersec" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[degrees per second allowed]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1.00000000e+000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="1.0"/>
+</Data>
+</Tag>
+<Tag Name="CALC_SP_RampStep" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[movement allowed per scan]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1.00000000e-001]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.1"/>
+</Data>
+</Tag>
+<Tag Name="CALC_SP_RampStep_Neg" TagType="Base" DataType="DINT" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="CALC_TestTimerSec" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[elapsed time during a response test]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0.00000000e+000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</Data>
+</Tag>
+<Tag Name="CMD_Auto" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[requests Auto mode]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
+</Data>
+</Tag>
+<Tag Name="CMD_Manual" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[requests manual mode]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="CMD_Reset" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[resets the sim and clears comparison data]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="CMD_Start" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[enables the loop and process simulation]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="CMD_Stop" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[disables the  loop]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="CMD_TuneStart" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[starts your autotune workflow or marks the point where you begin your tuning test]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="ONS_AutoReq" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="PIDE_01" TagType="Base" DataType="PID_ENHANCED" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Data Format="L5K">
+<![CDATA[[1,8192,0.00000000e+000,1.00000000e+002,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		,1.00000000e+002,0.00000000e+000,1.00000000e+000,1.00000000e+000,1.00000000e+000,1.00000000e+000
+		,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,1.00000000e+002
+		,0.00000000e+000,1.00000000e+002,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,3.40282347e+038
+		,3.40282347e+038,-3.40282347e+038,-3.40282347e+038,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		,0.00000000e+000,3.40282347e+038,3.40282347e+038,3.40282347e+038,3.40282347e+038,0.00000000e+000
+		,0,0.00000000e+000,1,0,0,0,0,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0,0,0,5.60519386e-045
+		,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="PID_ENHANCED">
+<DataValueMember Name="EnableIn" DataType="BOOL" Radix="Decimal" Value="1"/>
+<DataValueMember Name="PV" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="PVFault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PVEUMax" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="PVEUMin" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="SPProg" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="SPOper" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="SPCascade" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="SPHLimit" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="SPLLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="UseRatio" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RatioProg" DataType="REAL" Radix="Float" Value="1.0"/>
+<DataValueMember Name="RatioOper" DataType="REAL" Radix="Float" Value="1.0"/>
+<DataValueMember Name="RatioHLimit" DataType="REAL" Radix="Float" Value="1.0"/>
+<DataValueMember Name="RatioLLimit" DataType="REAL" Radix="Float" Value="1.0"/>
+<DataValueMember Name="CVFault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CVInitReq" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CVInitValue" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="CVProg" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="CVOper" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="CVOverride" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="CVPrevious" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="CVSetPrevious" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CVManLimiting" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CVEUMax" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="CVEUMin" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="CVHLimit" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="CVLLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="CVROCLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="FF" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="FFPrevious" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="FFSetPrevious" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HandFB" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="HandFBFault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="WindupHIn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="WindupLIn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ControlAction" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DependIndepend" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PGain" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="IGain" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="DGain" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="PVEProportional" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PVEDerivative" DataType="BOOL" Value="1"/>
+<DataValueMember Name="DSmoothing" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PVTracking" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ZCDeadband" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="ZCOff" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PVHHLimit" DataType="REAL" Radix="Float" Value="3.40282347e+038"/>
+<DataValueMember Name="PVHLimit" DataType="REAL" Radix="Float" Value="3.40282347e+038"/>
+<DataValueMember Name="PVLLimit" DataType="REAL" Radix="Float" Value="-3.40282347e+038"/>
+<DataValueMember Name="PVLLLimit" DataType="REAL" Radix="Float" Value="-3.40282347e+038"/>
+<DataValueMember Name="PVDeadband" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="PVROCPosLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="PVROCNegLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="PVROCPeriod" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="DevHHLimit" DataType="REAL" Radix="Float" Value="3.40282347e+038"/>
+<DataValueMember Name="DevHLimit" DataType="REAL" Radix="Float" Value="3.40282347e+038"/>
+<DataValueMember Name="DevLLimit" DataType="REAL" Radix="Float" Value="3.40282347e+038"/>
+<DataValueMember Name="DevLLLimit" DataType="REAL" Radix="Float" Value="3.40282347e+038"/>
+<DataValueMember Name="DevDeadband" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="AllowCasRat" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ManualAfterInit" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgProgReq" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgOperReq" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgCasRatReq" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgAutoReq" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgManualReq" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgOverrideReq" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgHandReq" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OperProgReq" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OperOperReq" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OperCasRatReq" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OperAutoReq" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OperManualReq" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgValueReset" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TimingMode" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="OversampleDT" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="RTSTime" DataType="DINT" Radix="Decimal" Value="1"/>
+<DataValueMember Name="RTSTimeStamp" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="AtuneAcquire" DataType="BOOL" Value="0"/>
+<DataValueMember Name="AtuneStart" DataType="BOOL" Value="0"/>
+<DataValueMember Name="AtuneUseGains" DataType="BOOL" Value="0"/>
+<DataValueMember Name="AtuneAbort" DataType="BOOL" Value="0"/>
+<DataValueMember Name="AtuneUnacquire" DataType="BOOL" Value="0"/>
+<DataValueMember Name="EnableOut" DataType="BOOL" Radix="Decimal" Value="0"/>
+<DataValueMember Name="CVEU" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="CV" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="CVInitializing" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CVHAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CVLAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CVROCAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="SP" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="SPPercent" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="SPHAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="SPLAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PVPercent" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="E" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="EPercent" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="InitPrimary" DataType="BOOL" Value="0"/>
+<DataValueMember Name="WindupHOut" DataType="BOOL" Value="0"/>
+<DataValueMember Name="WindupLOut" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ratio" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="RatioHAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RatioLAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ZCDeadbandOn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PVHHAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PVHAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PVLAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PVLLAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PVROCPosAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PVROCNegAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DevHHAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DevHAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DevLAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DevLLAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgOper" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CasRat" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Auto" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Manual" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Override" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Hand" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DeltaT" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="AtuneReady" DataType="BOOL" Value="0"/>
+<DataValueMember Name="AtuneOn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="AtuneDone" DataType="BOOL" Value="0"/>
+<DataValueMember Name="AtuneAborted" DataType="BOOL" Value="0"/>
+<DataValueMember Name="AtuneBusy" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Status1" DataType="DINT" Radix="Hex" Value="16#0000_0000"/>
+<DataValueMember Name="Status2" DataType="DINT" Radix="Hex" Value="16#0000_0000"/>
+<DataValueMember Name="InstructFault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PVFaulted" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CVFaulted" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HandFBFaulted" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PVSpanInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="SPProgInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="SPOperInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="SPCascadeInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="SPLimitsInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RatioProgInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RatioOperInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RatioLimitsInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CVProgInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CVOperInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CVOverrideInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CVPreviousInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CVEUSpanInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CVLimitsInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CVROCLimitInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FFInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FFPreviousInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HandFBInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PGainInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="IGainInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DGainInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ZCDeadbandInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PVDeadbandInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PVROCLimitsInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DevHLLimitsInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DevDeadbandInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="AtuneDataInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TimingModeInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RTSMissed" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RTSTimeInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RTSTimeStampInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DeltaTInv" DataType="BOOL" Value="0"/>
+</Structure>
+</Data>
+</Tag>
+<Tag Name="SIM_AmbientTemp" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[room temp baseline]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[7.00000000e+001]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="70.0"/>
+</Data>
+</Tag>
+<Tag Name="SIM_CoolingBias" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[optional constant cooling drag]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0.00000000e+000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</Data>
+</Tag>
+<Tag Name="SIM_HeaterGain" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[how strongly CV affects the heater]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[3.00000000e+000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="3.0"/>
+</Data>
+</Tag>
+<Tag Name="SIM_MaxTemp" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[clamp upper bound for the sim]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[3.00000000e+002]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="300.0"/>
+</Data>
+</Tag>
+<Tag Name="SIM_MinTemp" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[clamp lower bound for the sim]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0.00000000e+000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</Data>
+</Tag>
+<Tag Name="SIM_TargetTemp" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[inteernal temp target calculated from CV]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[7.00000000e+001]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="70.0"/>
+</Data>
+</Tag>
+<Tag Name="SIM_TaskDT" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[task period in seconds]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1.00000000e-001]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.1"/>
+</Data>
+</Tag>
+<Tag Name="SIM_TauSeconds" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[lag/time constant of the simulated process]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[4.50000000e+001]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="45.0"/>
+</Data>
+</Tag>
+<Tag Name="STS_AfterTuneCaptured" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[after-tuning trend saved]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="STS_BeforeTuneCaptured" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[before-tuning trend saved]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="STS_FirstScanDone" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[one-time initialization complete]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="STS_InAuto" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[simplified status mirror for automode]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="STS_LoopEnable" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[master run bit]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="STS_LoopReady" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[loop is ready to run]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="STS_ResetComplete" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[reset has finished]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="STS_TuningActive" TagType="Base" DataType="BOOL" Radix="Decimal" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[Autotune test in progress]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</Data>
+</Tag>
+<Tag Name="TIC_101_PIDE" TagType="Base" DataType="PID_ENHANCED" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Data Format="L5K">
+<![CDATA[[1,8192,0.00000000e+000,1.00000000e+002,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		,1.00000000e+002,0.00000000e+000,1.00000000e+000,1.00000000e+000,1.00000000e+000,1.00000000e+000
+		,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,1.00000000e+002
+		,0.00000000e+000,1.00000000e+002,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,3.40282347e+038
+		,3.40282347e+038,-3.40282347e+038,-3.40282347e+038,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		,0.00000000e+000,3.40282347e+038,3.40282347e+038,3.40282347e+038,3.40282347e+038,0.00000000e+000
+		,0,0.00000000e+000,1,0,7,0,0,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0,0,0,5.60519386e-045
+		,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="PID_ENHANCED">
+<DataValueMember Name="EnableIn" DataType="BOOL" Radix="Decimal" Value="1"/>
+<DataValueMember Name="PV" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="PVFault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PVEUMax" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="PVEUMin" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="SPProg" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="SPOper" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="SPCascade" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="SPHLimit" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="SPLLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="UseRatio" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RatioProg" DataType="REAL" Radix="Float" Value="1.0"/>
+<DataValueMember Name="RatioOper" DataType="REAL" Radix="Float" Value="1.0"/>
+<DataValueMember Name="RatioHLimit" DataType="REAL" Radix="Float" Value="1.0"/>
+<DataValueMember Name="RatioLLimit" DataType="REAL" Radix="Float" Value="1.0"/>
+<DataValueMember Name="CVFault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CVInitReq" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CVInitValue" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="CVProg" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="CVOper" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="CVOverride" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="CVPrevious" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="CVSetPrevious" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CVManLimiting" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CVEUMax" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="CVEUMin" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="CVHLimit" DataType="REAL" Radix="Float" Value="100.0"/>
+<DataValueMember Name="CVLLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="CVROCLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="FF" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="FFPrevious" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="FFSetPrevious" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HandFB" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="HandFBFault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="WindupHIn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="WindupLIn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ControlAction" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DependIndepend" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PGain" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="IGain" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="DGain" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="PVEProportional" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PVEDerivative" DataType="BOOL" Value="1"/>
+<DataValueMember Name="DSmoothing" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PVTracking" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ZCDeadband" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="ZCOff" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PVHHLimit" DataType="REAL" Radix="Float" Value="3.40282347e+038"/>
+<DataValueMember Name="PVHLimit" DataType="REAL" Radix="Float" Value="3.40282347e+038"/>
+<DataValueMember Name="PVLLimit" DataType="REAL" Radix="Float" Value="-3.40282347e+038"/>
+<DataValueMember Name="PVLLLimit" DataType="REAL" Radix="Float" Value="-3.40282347e+038"/>
+<DataValueMember Name="PVDeadband" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="PVROCPosLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="PVROCNegLimit" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="PVROCPeriod" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="DevHHLimit" DataType="REAL" Radix="Float" Value="3.40282347e+038"/>
+<DataValueMember Name="DevHLimit" DataType="REAL" Radix="Float" Value="3.40282347e+038"/>
+<DataValueMember Name="DevLLimit" DataType="REAL" Radix="Float" Value="3.40282347e+038"/>
+<DataValueMember Name="DevLLLimit" DataType="REAL" Radix="Float" Value="3.40282347e+038"/>
+<DataValueMember Name="DevDeadband" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="AllowCasRat" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ManualAfterInit" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgProgReq" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgOperReq" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgCasRatReq" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgAutoReq" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgManualReq" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgOverrideReq" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgHandReq" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OperProgReq" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OperOperReq" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OperCasRatReq" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OperAutoReq" DataType="BOOL" Value="0"/>
+<DataValueMember Name="OperManualReq" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgValueReset" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TimingMode" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="OversampleDT" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="RTSTime" DataType="DINT" Radix="Decimal" Value="1"/>
+<DataValueMember Name="RTSTimeStamp" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="AtuneAcquire" DataType="BOOL" Value="1"/>
+<DataValueMember Name="AtuneStart" DataType="BOOL" Value="1"/>
+<DataValueMember Name="AtuneUseGains" DataType="BOOL" Value="1"/>
+<DataValueMember Name="AtuneAbort" DataType="BOOL" Value="0"/>
+<DataValueMember Name="AtuneUnacquire" DataType="BOOL" Value="0"/>
+<DataValueMember Name="EnableOut" DataType="BOOL" Radix="Decimal" Value="0"/>
+<DataValueMember Name="CVEU" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="CV" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="CVInitializing" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CVHAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CVLAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CVROCAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="SP" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="SPPercent" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="SPHAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="SPLAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PVPercent" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="E" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="EPercent" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="InitPrimary" DataType="BOOL" Value="0"/>
+<DataValueMember Name="WindupHOut" DataType="BOOL" Value="0"/>
+<DataValueMember Name="WindupLOut" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Ratio" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="RatioHAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RatioLAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ZCDeadbandOn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PVHHAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PVHAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PVLAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PVLLAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PVROCPosAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PVROCNegAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DevHHAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DevHAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DevLAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DevLLAlarm" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ProgOper" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CasRat" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Auto" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Manual" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Override" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Hand" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DeltaT" DataType="REAL" Radix="Float" Value="0.0"/>
+<DataValueMember Name="AtuneReady" DataType="BOOL" Value="0"/>
+<DataValueMember Name="AtuneOn" DataType="BOOL" Value="0"/>
+<DataValueMember Name="AtuneDone" DataType="BOOL" Value="0"/>
+<DataValueMember Name="AtuneAborted" DataType="BOOL" Value="0"/>
+<DataValueMember Name="AtuneBusy" DataType="BOOL" Value="0"/>
+<DataValueMember Name="Status1" DataType="DINT" Radix="Hex" Value="16#0000_0000"/>
+<DataValueMember Name="Status2" DataType="DINT" Radix="Hex" Value="16#0000_0000"/>
+<DataValueMember Name="InstructFault" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PVFaulted" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CVFaulted" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HandFBFaulted" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PVSpanInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="SPProgInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="SPOperInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="SPCascadeInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="SPLimitsInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RatioProgInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RatioOperInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RatioLimitsInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CVProgInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CVOperInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CVOverrideInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CVPreviousInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CVEUSpanInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CVLimitsInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="CVROCLimitInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FFInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="FFPreviousInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="HandFBInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PGainInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="IGainInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DGainInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="ZCDeadbandInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PVDeadbandInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="PVROCLimitsInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DevHLLimitsInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DevDeadbandInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="AtuneDataInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TimingModeInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RTSMissed" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RTSTimeInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="RTSTimeStampInv" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DeltaTInv" DataType="BOOL" Value="0"/>
+</Structure>
+</Data>
+</Tag>
+<Tag Name="TIC_CV" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[actual controller output copied from PIDE]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0.00000000e+000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</Data>
+</Tag>
+<Tag Name="TIC_ManualCV" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[manual output command value when in manual mode]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0.00000000e+000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</Data>
+</Tag>
+<Tag Name="TIC_PV" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[simulated temperature process variable]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[7.00000000e+001]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="70.0"/>
+</Data>
+</Tag>
+<Tag Name="TIC_PV_Noise" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[optional noise injection if you want the sim to look less perfect]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[0.00000000e+000]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="0.0"/>
+</Data>
+</Tag>
+<Tag Name="TIC_SP_Initial" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[starting temp for repeatable tests]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[7.00000000e+001]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="70.0"/>
+</Data>
+</Tag>
+<Tag Name="TIC_SP_Ramped" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[the smoothed setpoint you actually feed into the PIDE]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[7.00000000e+001]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="70.0"/>
+</Data>
+</Tag>
+<Tag Name="TIC_SP_Target" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[the operator-entered desired setpoint]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1.50000000e+002]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="150.0"/>
+</Data>
+</Tag>
+<Tag Name="TIC_SP_TestStep" TagType="Base" DataType="REAL" Radix="Float" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[optional dedicated test SP value for trend comparison]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[1.50000000e+002]]>
+</Data>
+<Data Format="Decorated">
+<DataValue DataType="REAL" Radix="Float" Value="150.0"/>
+</Data>
+</Tag>
+<Tag Name="TMR_ResetPulse" TagType="Base" DataType="TIMER" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[TON]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[[0,0,0]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Data>
+</Tag>
+<Tag Name="TMR_SettleWindow" TagType="Base" DataType="TIMER" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[TON]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[[0,0,0]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Data>
+</Tag>
+<Tag Name="TMR_TestWindow" TagType="Base" DataType="TIMER" Constant="false" ExternalAccess="Read/Write" OpcUaAccess="None">
+<Description>
+<![CDATA[TON]]>
+</Description>
+<Data Format="L5K">
+<![CDATA[[0,0,0]]]>
+</Data>
+<Data Format="Decorated">
+<Structure DataType="TIMER">
+<DataValueMember Name="PRE" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="ACC" DataType="DINT" Radix="Decimal" Value="0"/>
+<DataValueMember Name="EN" DataType="BOOL" Value="0"/>
+<DataValueMember Name="TT" DataType="BOOL" Value="0"/>
+<DataValueMember Name="DN" DataType="BOOL" Value="0"/>
+</Structure>
+</Data>
+</Tag>
+</Tags>
+<Routines>
+<Routine Name="MainRoutine" Type="RLL">
+<RLLContent>
+<Rung Number="0" Type="N">
+<Text>
+<![CDATA[XIC(STS_LoopEnable)[JSR(PIDE_FBD,0) ,JSR(Main_Lad,0) ,JSR(PlantSim_ST,0) ];]]>
+</Text>
+</Rung>
+</RLLContent>
+</Routine>
+<Routine Name="Main_Lad" Type="RLL">
+<RLLContent>
+<Rung Number="0" Type="N">
+<Text>
+<![CDATA[[XIC(CMD_Start) ,XIC(CMD_Stop) OTU(STS_LoopEnable) ]OTL(STS_LoopEnable);]]>
+</Text>
+</Rung>
+<Rung Number="1" Type="N">
+<Comment>
+<![CDATA[Initialize all process and controller support values once at startup so the project always begins from a repeatable state]]>
+</Comment>
+<Text>
+<![CDATA[XIO(STS_FirstScanDone)[MOVE(70.0,TIC_PV) ,MOVE(150.0,TIC_SP_Target) ,MOVE(70.0,TIC_SP_Ramped) ,MOVE(0.0,TIC_ManualCV) ,MOVE(70.0,SIM_AmbientTemp) ,MOVE(3.0,SIM_HeaterGain) ,MOVE(45.0,SIM_TauSeconds) ,MOVE(0.1,SIM_TaskDT) ,MOVE(1.0,CALC_SP_RampRatePersec) ,OTL(STS_FirstScanDone) ];]]>
+</Text>
+</Rung>
+<Rung Number="2" Type="N">
+<Comment>
+<![CDATA[loop is enabled]]>
+</Comment>
+<Text>
+<![CDATA[XIC(STS_LoopEnable)OTE(STS_LoopReady);]]>
+</Text>
+</Rung>
+<Rung Number="3" Type="N">
+<Comment>
+<![CDATA[calc_sp_rampstep = calc_sp_rampratepersec * sim_taskDt]]>
+</Comment>
+<Text>
+<![CDATA[XIC(STS_LoopReady)MUL(CALC_SP_RampRatePersec,SIM_TaskDT,CALC_SP_RampStep);]]>
+</Text>
+</Rung>
+<Rung Number="4" Type="N">
+<Comment>
+<![CDATA[calc_sp_delta = tic_ sp_target - tic_sp_delta]]>
+</Comment>
+<Text>
+<![CDATA[XIC(STS_LoopReady)SUB(TIC_SP_Target,TIC_SP_Ramped,CALC_SP_Delta);]]>
+</Text>
+</Rung>
+<Rung Number="5" Type="N">
+<Comment>
+<![CDATA[calc_sp_absdelta = ABS(CALC_SP_DELTA]]>
+</Comment>
+<Text>
+<![CDATA[XIC(STS_LoopReady)ABS(CALC_SP_Delta,CALC_SP_AbsDelta);]]>
+</Text>
+</Rung>
+<Rung Number="6" Type="N">
+<Comment>
+<![CDATA[CALC_SP_RampStep_Neg = -CALC_SP_RampStep]]>
+</Comment>
+<Text>
+<![CDATA[XIC(STS_LoopReady)NEG(CALC_SP_RampStep,CALC_SP_RampStep_Neg);]]>
+</Text>
+</Rung>
+<Rung Number="7" Type="N">
+<Comment>
+<![CDATA[if delta is bigger than one ramp step, incerase TIC_SP_Ramped]]>
+</Comment>
+<Text>
+<![CDATA[XIC(STS_LoopReady)GT(CALC_SP_Delta,CALC_SP_RampStep)ADD(TIC_SP_Ramped,CALC_SP_RampStep,TIC_SP_Ramped);]]>
+</Text>
+</Rung>
+<Rung Number="8" Type="N">
+<Comment>
+<![CDATA[if delta is more negative than one ramp step, decrease TIC_SP_Ramped]]>
+</Comment>
+<Text>
+<![CDATA[XIC(STS_LoopReady)LT(CALC_SP_Delta,CALC_SP_RampStep)SUB(TIC_SP_Ramped,CALC_SP_RampStep,TIC_SP_Ramped);]]>
+</Text>
+</Rung>
+<Rung Number="9" Type="N">
+<Comment>
+<![CDATA[if the remaining difference is smaller than one step, force the ramped sp to exactly equal the target sp]]>
+</Comment>
+<Text>
+<![CDATA[XIC(STS_LoopReady)LE(CALC_SP_AbsDelta,CALC_SP_RampStep)MOVE(TIC_SP_Target,TIC_SP_Ramped);]]>
+</Text>
+</Rung>
+<Rung Number="10" Type="N">
+<Comment>
+<![CDATA[forces the pide instruction into program control so mode transitions and output behavior are controlled by ladder logic. Thjis prevents operator or external ownership from override Auto/Manual switching during the simulation]]>
+</Comment>
+<Text>
+<![CDATA[OTE(TIC_101_PIDE.ProgProgReq);]]>
+</Text>
+</Rung>
+<Rung Number="11" Type="N">
+<Comment>
+<![CDATA[clears the operator control request bit to ensure Program control ownership remains active. this guarantees the loop responds only to Program Auto and program manual commands issued by the project logic.]]>
+</Comment>
+<Text>
+<![CDATA[OTU(TIC_101_PIDE.ProgOperReq);]]>
+</Text>
+</Rung>
+<Rung Number="12" Type="N">
+<Comment>
+<![CDATA[generates one-scan Program Auto request when the auto command transitions from off to on. This switches the pide instruction into automatic mode where controller output is calculated from setpoint and process variable]]>
+</Comment>
+<Text>
+<![CDATA[XIC(CMD_Auto)ONS(ONS_AutoReq)OTL(TIC_101_PIDE.ProgAutoReq);]]>
+</Text>
+</Rung>
+<Rung Number="13" Type="N">
+<Comment>
+<![CDATA[Clears the Program Auto request bit after the auto pushbutton is released. This ensures the request behaves as a pulse instead of a continously asserted command]]>
+</Comment>
+<Text>
+<![CDATA[XIO(CMD_Auto)OTU(TIC_101_PIDE.ProgAutoReq);]]>
+</Text>
+</Rung>
+<Rung Number="14" Type="N">
+<Comment>
+<![CDATA[Generates a one-scan Program manual request when the manual command transitions from off to on. This places the PIDE instruction into manual mode allowing direct control of the output using the manual CV value]]>
+</Comment>
+<Text>
+<![CDATA[XIC(CMD_Manual)OTL(TIC_101_PIDE.ProgManualReq);]]>
+</Text>
+</Rung>
+<Rung Number="15" Type="N">
+<Comment>
+<![CDATA[Clears the program manual request bit after the manual pushbutton is released. This prevents the request from remaining latched and ensures proper mode transition behavior]]>
+</Comment>
+<Text>
+<![CDATA[XIO(CMD_Manual)OTU(TIC_101_PIDE.ProgManualReq);]]>
+</Text>
+</Rung>
+<Rung Number="16" Type="N">
+<Comment>
+<![CDATA[Writes the ramped setpoint value into the PIDE program setpoint input. The ramped setpoint is used instead of the target setpoint to prevent abrupt changes and improve loop stability during tuning and normal operation]]>
+</Comment>
+<Text>
+<![CDATA[XIC(STS_LoopReady)MOVE(TIC_SP_Ramped,TIC_101_PIDE.SPProg);]]>
+</Text>
+</Rung>
+<Rung Number="17" Type="N">
+<Comment>
+<![CDATA[Writes the manual controller output value into the PIDE program control variable input. This value is used when the loop is in Program manual mode to allow direct operator control of the output]]>
+</Comment>
+<Text>
+<![CDATA[XIC(STS_LoopReady)MOVE(TIC_ManualCV,TIC_101_PIDE.CVProg);]]>
+</Text>
+</Rung>
+<Rung Number="18" Type="N">
+<Comment>
+<![CDATA[Copies the calculate PIDE control variable output into a project tag for simulation, trending, and performance analysis of the temperature control loop.]]>
+</Comment>
+<Text>
+<![CDATA[XIC(STS_LoopReady)MOVE(TIC_101_PIDE.CV,TIC_CV);]]>
+</Text>
+</Rung>
+<Rung Number="19" Type="N">
+<Text>
+<![CDATA[XIC(STS_LoopEnable)[JSR(PlantSim_ST,0) ,JSR(PIDE_FBD,0) ];]]>
+</Text>
+</Rung>
+</RLLContent>
+</Routine>
+<Routine Name="PIDE_FBD" Type="FBD">
+<FBDContent SheetSize="B - 11 x 17 in" SheetOrientation="Landscape">
+<Sheet Number="1">
+<Description>
+<![CDATA[iref]]>
+</Description>
+<IRef ID="0" X="120" Y="120" Operand="TIC_PV" HideDesc="false"/>
+<ORef ID="1" X="640" Y="100" Operand="TIC_CV" HideDesc="false"/>
+<Block Type="PIDE" ID="2" X="200" Y="100" Operand="TIC_101_PIDE" VisiblePins="PV SPProg SPCascade RatioProg CVProg FF HandFB ProgProgReq ProgOperReq ProgCasRatReq ProgAutoReq ProgManualReq ProgOverrideReq ProgHandReq CVEU SP PVHHAlarm PVHAlarm PVLAlarm PVLLAlarm PVROCPosAlarm PVROCNegAlarm DevHHAlarm DevHAlarm DevLAlarm DevLLAlarm ProgOper CasRat Auto Manual Override Hand" HideDesc="false"/>
+<Wire FromID="0" ToID="2" ToParam="CVProg"/>
+<Wire FromID="0" ToID="2" ToParam="FF"/>
+<Wire FromID="0" ToID="2" ToParam="HandFB"/>
+<Wire FromID="0" ToID="2" ToParam="PV"/>
+<Wire FromID="0" ToID="2" ToParam="RatioProg"/>
+<Wire FromID="0" ToID="2" ToParam="SPCascade"/>
+<Wire FromID="0" ToID="2" ToParam="SPProg"/>
+<Wire FromID="2" FromParam="CVEU" ToID="1"/>
+</Sheet>
+</FBDContent>
+</Routine>
+<Routine Name="PlantSim_ST" Type="ST">
+<STContent>
+<Line Number="0">
+<![CDATA[//========================]]>
+</Line>
+<Line Number="1">
+<![CDATA[//simulated Temperature control Process]]>
+</Line>
+<Line Number="2">
+<![CDATA[]]>
+</Line>
+<Line Number="3">
+<![CDATA[]]>
+</Line>
+<Line Number="4">
+<![CDATA[]]>
+</Line>
+<Line Number="5">
+<![CDATA[//Calculate target temperature from controller output]]>
+</Line>
+<Line Number="6">
+<![CDATA[SIM_TargetTemp:= SIM_AmbientTemp + ]]>
+</Line>
+<Line Number="7">
+<![CDATA[((TIC_CV / 100.0) * SIM_HeaterGain * 100.0);]]>
+</Line>
+<Line Number="8">
+<![CDATA[]]>
+</Line>
+<Line Number="9">
+<![CDATA[//First order lag process model]]>
+</Line>
+<Line Number="10">
+<![CDATA[TIC_PV:= TIC_PV + ]]>
+</Line>
+<Line Number="11">
+<![CDATA[((SIM_TargetTemp - TIC_PV) / SIM_TauSeconds) * SIM_TaskDT;]]>
+</Line>
+<Line Number="12">
+<![CDATA[]]>
+</Line>
+<Line Number="13">
+<![CDATA[//clamp PV to realistic limits]]>
+</Line>
+<Line Number="14">
+<![CDATA[if TIC_PV > SIM_MaxTemp ]]>
+</Line>
+<Line Number="15">
+<![CDATA[then TIC_PV:= SIM_MaxTemp;]]>
+</Line>
+<Line Number="16">
+<![CDATA[	end_if;]]>
+</Line>
+<Line Number="17">
+<![CDATA[	]]>
+</Line>
+<Line Number="18">
+<![CDATA[	if TIC_PV < SIM_MinTemp then]]>
+</Line>
+<Line Number="19">
+<![CDATA[		TIC_PV:= SIM_MinTemp;]]>
+</Line>
+<Line Number="20">
+<![CDATA[		end_if;]]>
+</Line>
+<Line Number="21">
+<![CDATA[	]]>
+</Line>
+<Line Number="22">
+<![CDATA[	]]>
+</Line>
+</STContent>
+</Routine>
+</Routines>
+</Program>
+</Programs>
+</Controller>
+</RSLogix5000Content>
