@@ -66,3 +66,69 @@ PID tuning and autotune
 Function block programming  
 Structured text simulation  
 Industrial controls architecture
+
+
+
+                     ┌────────────────────────────┐
+                     │          Main_LAD          │
+                     │----------------------------│
+                     │ • Start / Stop Logic       │
+                     │ • Auto / Manual Mode       │
+                     │ • Setpoint Ramping         │
+                     │ • Manual Output Override   │
+                     │ • Writes SPProg            │
+                     │ • Writes CVProg            │
+                     │ • Calls Subroutines        │
+                     └─────────────┬──────────────┘
+                                   │
+                                   │ writes members
+                                   ▼
+                     ┌────────────────────────────┐
+                     │          PIDE_FBD          │
+                     │----------------------------│
+TIC_PV  ───────────► │ PV                CV       │ ───────► TIC_CV
+                     │      TIC_101_PIDE          │
+                     │                            │
+                     │ • PID Control              │
+                     │ • Auto / Manual Switching  │
+                     │ • Output Limiting          │
+                     │ • Autotune                │
+                     └─────────────┬──────────────┘
+                                   │
+                                   │ controller output
+                                   ▼
+                     ┌────────────────────────────┐
+                     │        PlantSim_ST         │
+                     │----------------------------│
+                     │ • Thermal Model            │
+                     │ • Heater Gain              │
+                     │ • Time Constant            │
+                     │ • PV Clamp                 │
+                     │                            │
+                     │ Updates TIC_PV             │
+                     └─────────────┬──────────────┘
+                                   │
+                                   │ feedback
+                                   └─────────────── back to PIDE PV
+
+
+
+
+Setpoint (SP)
+     │
+     ▼
+SP Ramp Logic
+     │
+     ▼
+PIDE Controller
+     │
+     ▼
+Control Output (CV)
+     │
+     ▼
+Thermal Plant Simulation
+     │
+     ▼
+Process Variable (PV)
+     │
+     └────────────── feedback to controller
