@@ -92,7 +92,7 @@ TIC_PV  ───────────► │ PV                CV       │ 
                      │ • PID Control              │
                      │ • Auto / Manual Switching  │
                      │ • Output Limiting          │
-                     │ • Autotune                │
+                     │ • Autotune                 │
                      └─────────────┬──────────────┘
                                    │
                                    │ controller output
